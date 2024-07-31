@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import user_login
+from .views import user_login, product_list1, product_list2, product_list3
 
 
 urlpatterns = [
