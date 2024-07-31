@@ -39,10 +39,7 @@ class MyUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-class User(models.Model):
-    # 如果使用Django内置的用户认证系统，则可以继承AuthUser
-    # 否则，可以定义自己的用户模型
-    class User(AbstractBaseUser):
+class User(AbstractBaseUser):
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
