@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "apps.pages",
     "apps.authentication",
     "apps.cards",
+    "apps.vendingMachine",
     "apps.ui",
     "apps.extended_ui",
     "apps.icons",
