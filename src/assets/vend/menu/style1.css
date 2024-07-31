@@ -1,0 +1,142 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.page.slide-left {
+    transform: translateX(-100%);
+}
+
+.page.slide-right {
+    transform: translateX(100%);
+}
+
+.page-container {
+    position: relative;
+    width: 100%;
+    max-width: 414px;
+    height: 100vh;
+    max-height: 896px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    z-index: 1;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 2.5%;
+    right: 5%;
+    width: 7%;
+    height: auto;
+    z-index: 3;
+}
+
+.products-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.products {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.buttons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 改为flex-start以便手动控制间距 */
+    padding: 55% 0 15%; /* 调整顶部padding以定位第一组按钮 */
+    box-sizing: border-box;
+}
+
+.product-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 8%;
+    margin-bottom: 100px; /* 添加下边距来控制组间距 */
+}
+
+.button {
+    width: 140px;
+    height: 45px;
+    margin-top: 3px;
+}
+
+.details-button {
+    margin-bottom: 3px;
+}
+
+.nav-button-container {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.nav-button {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    margin-right: 50px; /* 增加右边距 */
+}
+
+.next {
+    margin-left: 50px; /* 增加左边距 */
+}
+
+.buttons-container a,
+.nav-button-container a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.buttons-container a:hover,
+.nav-button-container a:hover {
+    opacity: 0.8; /* 添加一个简单的悬停效果 */
+}
+
+@media (max-aspect-ratio: 414/896) {
+    .page-container {
+        height: auto;
+        aspect-ratio: 414 / 896;
+    }
+}

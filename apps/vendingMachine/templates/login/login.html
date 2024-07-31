@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女性向け自販機ログイン</title>
+    <link rel="stylesheet" href="{% static 'vend/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="mascot-container">
+            <img src="{% static 'vend/images/mascot.png' %}" alt="Mascot with welcome message" class="mascot">
+        </div>
+        <img src="{% static 'vend/images/title.png' %}" alt="女性向け自販機" class="title">
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="ユーザーID" required>
+            <input type="password" name="password" placeholder="パスワード" required>
+            <input type="image" src="{% static 'vend/images/login_button.png' %}" alt="ログイン" class="login-button">
+        </form>
+    </div>
+    <img src="{% static 'vend/images/copyright.png' %}" alt="Copyright © 2024 Digital Hollywood A23DC548_MA YIYUN" class="copyright">
+</body>
+</html>
