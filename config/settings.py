@@ -42,15 +42,17 @@ DEBUG = os.environ.get("DEBUG", 'True').lower() in ['true', 'yes', '1']
 
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 # Current DJANGO_ENVIRONMENT
 ENVIRONMENT = os.environ.get("DJANGO_ENVIRONMENT", default="local")
 
+CSRF_TRUSTED_ORIGINS = ['https://www.jiasushi.xyz']
 
 # Application definition
 
 INSTALLED_APPS = [
+    "apps.suit.apps.SuitConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -123,7 +125,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'femtech',
         'USER': 'femtech',
-        'PASSWORD': '',
+        'PASSWORD': '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',
         'HOST': 'localhost',
         'PORT': '',
     }
