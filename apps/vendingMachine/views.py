@@ -29,10 +29,10 @@ def user_login(request):
         return render(request, 'login/login.html')
 
 def product_list1(request):
-    return render(request, 'menu1.html')
+    return render(request, 'menu/menu1.html')
 
 def product_list2(request):
-    return render(request, 'menu2.html')
+    return render(request, 'menu/menu2.html')
 
 def product_list3(request):
-    return render(request, 'menu3.html')
+    return render(request, 'menu/menu3.html')
