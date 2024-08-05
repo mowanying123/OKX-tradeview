@@ -40,5 +40,5 @@ def product_list3(request):
 def detail(request):
     return render(request, 'other/detail.html')
 
-def product_list3(request):
+def payment(request):
     return render(request, 'other/payment.html')
