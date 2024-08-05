@@ -15,24 +15,24 @@ vend/{% load static %}
             <img src="{% static 'vend/images/products_with_text2.png' %}" alt="商品リスト" class="products">
             <div class="buttons-container">
                <div class="product-row">
-                    <a href="detail"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
-                    <a href="payment"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
+                    <a href="{% url 'detail'%}"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
+                    <a href="{% url 'payment'%}"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
                 </div>
                 <div class="product-row">
-                    <a href="detail"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
-                    <a href="payment"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
+                    <a href="{% url 'detail'%}"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
+                    <a href="{% url 'payment'%}"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
                 </div>
                 <div class="product-row">
-                    <a href="detail"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
-                    <a href="payment"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
+                    <a href="{% url 'detail'%}"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
+                    <a href="{% url 'payment'%}"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
                 </div>
             </div>
         </div>
         <div class="nav-button-container">
-            <button class="nav-button prev" href="products1.html">
+            <button class="nav-button prev" href="{% url 'products2'%}">
                 <img src="{% static 'vend/images/prev_button.png' %}" alt="前へ">
             </button>
-            <button class="nav-button next" href="products3.html">
+            <button class="nav-button next" href="{% url 'products3'%}">
                 <img src="{% static 'vend/images/next_button.png' %}" alt="次へ">
             </button>
         </div>
