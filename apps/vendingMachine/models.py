@@ -42,6 +42,7 @@ class MyUserManager(BaseUserManager):
 class User(AbstractBaseUser):
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
+    nickname = models.CharField(max_length=100, blank=True)
     is_active = models.BooleanField(default=True)
 
     objects = MyUserManager()
