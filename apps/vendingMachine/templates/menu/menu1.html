@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="{% static 'vend/menu/style1.css' %}">
 </head>
 <body>
-    <div class="current-page">
+    <div class="page-container">
         <img src="{% static 'vend/images/background_with_logo.png' %}" alt="背景とロゴ" class="background">
         <img src="{% static 'vend/images/menu-icon.png' %}" alt="メニュー" class="menu-icon">
         <div class="products-container">
             <img src="{% static 'vend/images/products_with_text.png' %}" alt="商品リスト" class="products">
             <div class="buttons-container">
                 <div class="product-row">
-                    <a href="ss.html"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
-                    <a href="buy.html"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
+                    <a href="detail"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
+                    <a href="payment"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
                 </div>
                 <div class="product-row">
-                    <a href="ss.html"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
-                    <a href="buy.html"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
+                    <a href="detail"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
+                    <a href="payment"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
                 </div>
                 <div class="product-row">
-                    <a href="ss.html"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
-                    <a href="buy.html"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
+                    <a href="detail"><img src="{% static 'vend/images/ss.png' %}" alt="詳細はこちら" class="button details-button"></a>
+                    <a href="payment"><img src="{% static 'vend/images/buy.png' %}" alt="すぐ購入" class="button buy-button"></a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <!-- <button class="nav-button prev" data-href="menu">
                 <img src="{% static 'vend/images/prev_button.png' %}" alt="前へ">
             </button> -->
-            <button class="nav-button next" data-href="products2">
+            <button class="nav-button next" href="products2">
                 <img src="{% static 'vend/images/next_button.png' %}" alt="次へ">
             </button>
         </div>

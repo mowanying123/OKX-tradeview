@@ -36,3 +36,9 @@ def product_list2(request):
 
 def product_list3(request):
     return render(request, 'menu/menu3.html')
+
+def detail(request):
+    return render(request, 'other/detail.html')
+
+def product_list3(request):
+    return render(request, 'other/payment.html')
