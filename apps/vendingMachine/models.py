@@ -6,8 +6,8 @@ class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    product_photo = models.ImageField(upload_to='product_photos/')  # 假设你已经设置了媒体文件存储
-    product_description = models.TextField()
+    product_photo = models.ImageField(upload_to='product_photos/'， nullable=True)  # 假设你已经设置了媒体文件存储
+    product_description = models.TextField(nullable=True)
     product_quantity = models.IntegerField()
 
     def __str__(self):
