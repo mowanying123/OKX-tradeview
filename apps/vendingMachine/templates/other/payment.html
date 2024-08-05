@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カート</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+        }
+        .header img {
+            height: 40px;
+        }
+        .menu svg {
+            fill: #fff;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        .cart-items {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item select {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 1em;
+        }
+        .cart-item button {
+            background-color: #67b7e1;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .cart-item button:hover {
+            background-color: #559bbd;
+        }
+        .total {
+            padding: 10px 0;
+            font-size: 1.2em;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        .buttons button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .purchase {
+            background-color: #f28a8a;
+        }
+        .back {
+            background-color: #b28edc;
+        }
+        .payment-methods {
+            margin-top: 20px;
+        }
+        .payment-methods img {
+            width: 45%;
+            margin: 2.5%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'vend/images/logo.png' %}" alt="Logo">
+            <div class="menu">
+                <svg viewBox="0 0 100 80" width="40" height="40">
+                    <rect width="100" height="20"></rect>
+                    <rect y="30" width="100" height="20"></rect>
+                    <rect y="60" width="100" height="20"></rect>
+                </svg>
+            </div>
+        </div>
+        <h1>カートに入っている商品：</h1>
+        <div class="cart-items">
+            <div class="cart-item">
+                <span>1. ナプキン</span>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button>削除</button>
+            </div>
+            <div class="cart-item">
+                <span>2. 鎮痛薬</span>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button>削除</button>
+            </div>
+        </div>
+        <div class="total">
+            小計: 0.00¥
+        </div>
+        <div class="buttons">
+            <button class="purchase">購入を確定する</button>
+            <button class="back">ページ戻る</button>
+        </div>
+        <div class="payment-methods">
+            <img src="{% static 'vend/images/paypay.jpg' %}" alt="PayPay">
+            <img src="{% static 'vend/images/linepay.jpg' %}" alt="LINE Pay">
+        </div>
+    </div>
+</body>
+</html>
