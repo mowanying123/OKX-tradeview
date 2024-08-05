@@ -32,9 +32,9 @@ vend/{% load static %}
             <button class="nav-button prev" href="{% url 'product-list1'%}">
                 <img src="{% static 'vend/images/prev_button.png' %}" alt="前へ">
             </button>
-            <button class="nav-button next" href="{% url 'product-list3'%}">
+            <a class="nav-button next" href="{% url 'product-list3'%}">
                 <img src="{% static 'vend/images/next_button.png' %}" alt="次へ">
-            </button>
+            </a>
         </div>
         <script src="{% static 'vend/js/transition.js' %}"></script>
     </div>
