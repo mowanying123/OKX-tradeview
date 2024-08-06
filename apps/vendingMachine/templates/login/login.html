@@ -15,6 +15,7 @@
         </div>
         <img src="{% static 'vend/images/title.png' %}" alt="女性向け自販機" class="title">
         <form method="post">
+            {% if error|length > 0 %} <label style="color: brown;"> 用户或密码错误 </label> {% endif %}
             {% csrf_token %}
             <input type="text" name="username" placeholder="ユーザーID" required>
             <input type="password" name="password" placeholder="パスワード" required>
