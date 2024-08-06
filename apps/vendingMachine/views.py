@@ -19,14 +19,15 @@ def user_login(request):
             password_valid = user.check_password('raw_password')
             login(request, user)
             # 重定向到首页或其他页面
-            return redirect('home')  # 假设'home'是首页的URL名称
+            return redirect('product-list1')  # 假设'home'是首页的URL名称
         else:
             # 用户验证失败，返回登录页面并显示错误消息
             context = {'error': '无效的用户名或密码'}
             return render(request, 'login/login.html', context)
     else:
+        context = {'error': ''}
         # 显示登录表单
-        return render(request, 'login/login.html')
+        return render(request, 'login/login.html', context)
 
 def product_list1(request):
     return render(request, 'menu/menu1.html')
@@ -40,5 +41,7 @@ def product_list3(request):
 def detail(request):
     return render(request, 'other/detail.html')
 
+@login_required(login_url="login")
 def payment(request):
+    print(request.user)
     return render(request, 'other/payment.html')

@@ -52,7 +52,9 @@ CSRF_TRUSTED_ORIGINS = ['https://www.jiasushi.xyz']
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
     "apps.suit.apps.SuitConfig",
+    "django_extensions",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
