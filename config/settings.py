@@ -52,7 +52,6 @@ CSRF_TRUSTED_ORIGINS = ['https://www.jiasushi.xyz']
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
     "apps.suit.apps.SuitConfig",
     "django_extensions",
     "django.contrib.admin",
@@ -127,7 +126,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'femtech',
         'USER': 'femtech',
-        'PASSWORD': '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',
         'HOST': 'localhost',
         'PORT': '',
     }
