@@ -125,7 +125,8 @@ DATABASES = {
         #'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'femtech',
-        'USER': 'femtech',
+        'PASSWORD':'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',
+	'USER': 'femtech',
         'HOST': 'localhost',
         'PORT': '',
     }
