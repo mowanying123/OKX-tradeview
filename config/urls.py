@@ -22,6 +22,8 @@ from web_project.views import SystemView
 urlpatterns = [
     path("admin/", admin.site.urls),
 
+    path("cryto-trade/", include("apps.crytoforward.urls"))
+
     # Dashboard urls
     path("", include("apps.dashboards.urls")),
 
