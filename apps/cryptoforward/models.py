@@ -109,10 +109,11 @@ class DepositAccount(AbstractBaseUser):
 
     USERNAME_FIELD = 'account_name'
 
-    def save(self, *args, **kwargs):
+    def save(self, **kwargs):
+        print("satate {0}".format(self._state.adding))
         if self._state.adding:
             self.password = make_password(self.password)  # 确保在创建时加密密码
-        super(DepositAccount, self).save(*args, **kwargs)
+        super().save(**kwargs)
 
     def __str__(self):
         return self.nickname
