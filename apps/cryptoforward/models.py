@@ -15,12 +15,13 @@ class tradingType(models.IntegerChoices):
 
 # Create your models here.
 class TradingPair (models.Model):
-    id = models.AutoField(primary_key=True)
+    finger_print = HashidAutoField(primary_key=True, verbose_name="指纹值")
     treading_pair_currency = models.CharField(max_length=200, verbose_name="交易对币种")
-    finger_print = HashidAutoField(verbose_name="指纹值")
-    trading_context = models.TextField(blank=True, default=GetTradingDefaultInfoFormat, verbose_name="交易信息Context(json 格式)")
+    trading_context = models.TextField(blank=True, verbose_name="交易信息Context(json 格式)")
 
-    
+    def save(self, *args, **kwargs):
+        self.trading_context = GetTradingDefaultInfoFormat(self, finger_print)
+        super(User, self).save(*args, **kwargs)
 
     def __str__(self):
         return "{0}-{1}".format(self.treading_pair_currency, self.finger_print)

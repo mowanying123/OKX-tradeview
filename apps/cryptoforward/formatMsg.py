@@ -1,10 +1,8 @@
 import hashlib
 from datetime import datetime
 
-def GetTradingDefaultInfoFormat():
-    m1 = hashlib.md5(str(datetime.now()).encode("utf-8"))
-    h1 = m1.hexdigest()
-    return "fingerPrint={0}\npair=<交易对>\namount=<交易量>\ndirection=<rise/fall>".format(h1)
+def GetTradingDefaultInfoFormat(finger):
+    return "fingerPrint={0}\npair=<交易对>\namount=<交易量>\ndirection=<rise/fall>".format(finger)
 
 def ParseTradingFormat(info):
     res = {}
