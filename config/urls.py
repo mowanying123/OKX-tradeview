@@ -22,7 +22,7 @@ from web_project.views import SystemView
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    path("cryto-trade/", include("apps.crytoforward.urls"))
+    path("crypto-trade/", include("apps.cryptoforward.urls"))
 
     # Dashboard urls
     path("", include("apps.dashboards.urls")),

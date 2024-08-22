@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     "apps.authentication",
     "apps.cards",
     "apps.vendingMachine",
-    "apps.crytoforward",
+    "apps.cryptoforward",
     "apps.ui",
     "apps.extended_ui",
     "apps.icons",
