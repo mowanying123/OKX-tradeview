@@ -85,7 +85,7 @@ class ExcangeSignalTrading(models.Model):
     order_list = models.ManyToManyField(ExchangeOrder, blank=True, verbose_name="订单列表")
 
     def __str__(self):
-        return self.user_name
+        return self.name
 
 class AccountManager(BaseUserManager):
     def create_user(self, username, email, password=None):
