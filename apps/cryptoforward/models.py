@@ -27,7 +27,7 @@ class TradingPair (models.Model):
 
     def save(self, **kwargs):
         if len(self.finger_print) < 1:
-            self.finger_print = hashId()
+            self.finger_print = self.hashId()
         print("satate {0}".format(self._state.adding))
         self.trading_context = GetTradingDefaultInfoFormat(self.finger_print)
         super().save(**kwargs)
