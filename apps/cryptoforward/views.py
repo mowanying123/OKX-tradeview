@@ -25,10 +25,12 @@ def trade_API_view(request):
         if "fingerPrint" in data:
             signals = ExcangeSignalTrading.objects.filter(trade_pair__finger_print=data["fingerPrint"])
             if signals.count > 0:
-                signalPair[data["fingerPrint"]] = signals.all()
+                signalPair[data["fingerPrint"]] = {"entities":signals.all(), "context":txt}
+                print("放入 交易信号 ", signalPair)
             accounts = ExcangeSignalTrading.objects.filter(trade_pair__finger_print=data["fingerPrint"])
             if accounts.count > 0:
-                accountPair[data["fingerPrint"]] = accounts.all()
+                accountPair[data["fingerPrint"]] = {"entities":accounts.all(), "context":txt}
+                print("放入 关联账户 ", signalPair)
             return resMsg("ok")
         else:
             errorMsg("incomeing data wrong, income data not correct:{0}".format(txt))
