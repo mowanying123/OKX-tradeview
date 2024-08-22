@@ -19,9 +19,10 @@ class TradingPair (models.Model):
     treading_pair_currency = models.CharField(max_length=200, verbose_name="交易对币种")
     trading_context = models.TextField(blank=True, verbose_name="交易信息Context(json 格式)")
 
-    def save(self, *args, **kwargs):
+    def save(self, **kwargs):
+        print("satate {0}".format(self._state.adding))
         self.trading_context = GetTradingDefaultInfoFormat(self.finger_print)
-        super(TradingPair, self).save(*args, **kwargs)
+        super().save(**kwargs)
 
     def __str__(self):
         return "{0}-{1}".format(self.treading_pair_currency, self.finger_print)
@@ -109,11 +110,10 @@ class DepositAccount(AbstractBaseUser):
 
     USERNAME_FIELD = 'account_name'
 
-    def save(self, **kwargs):
-        print("satate {0}".format(self._state.adding))
+    def save(self, *args, **kwargs):
         if self._state.adding:
             self.password = make_password(self.password)  # 确保在创建时加密密码
-        super().save(**kwargs)
+        super(DepositAccount, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.nickname
