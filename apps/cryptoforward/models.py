@@ -66,7 +66,7 @@ class ExchangeAccountInfo(models.Model):
 class ExcangeSignalTrading(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200, verbose_name="交易管道信号名称")
-    trade_pair = models.ForeignKey(TradingPair, blank=true, null=True, on_delete=models.CASCADE, related_name='pipeline_trading_pair', verbose_name="关联交易对" )
+    trade_pair = models.ForeignKey(TradingPair, blank=True, null=True, on_delete=models.CASCADE, related_name='pipeline_trading_pair', verbose_name="关联交易对" )
     signal_api = models.CharField(max_length=200, verbose_name="交易信号api")
     format_string = models.TextField(blank=True, verbose_name="交易信号格式(json 格式)")
     order_list = models.ManyToManyField(ExchangeOrder, verbose_name="订单列表")
