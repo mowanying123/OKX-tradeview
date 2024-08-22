@@ -5,6 +5,9 @@ from django.contrib.auth.hashers import make_password
 from .formatMsg import GetTradingDefaultInfoFormat
 from django.utils.translation import gettext_lazy as _
 
+import hashlib
+from datetime import datetime
+
 class tradingType(models.IntegerChoices):
         BUY = 1, _("买入")
         SELL = 2, _("卖出")
@@ -15,11 +18,17 @@ class tradingType(models.IntegerChoices):
 
 # Create your models here.
 class TradingPair (models.Model):
-    finger_print = HashidAutoField(primary_key=True, verbose_name="指纹值")
+    def hashId():
+        m1 = hashlib.md5(str(datetime.now()).encode("utf-8"))
+        return m1.hexdigest()
+        
+    finger_print = TextField(primary_key=True, blank=True, editable=False, verbose_name="指纹值")
     treading_pair_currency = models.CharField(max_length=200, verbose_name="交易对币种")
     trading_context = models.TextField(blank=True, verbose_name="交易信息Context(json 格式)")
 
     def save(self, **kwargs):
+        if len(self.finger_print) < 1:
+            self.finger_print = hashId()
         print("satate {0}".format(self._state.adding))
         self.trading_context = GetTradingDefaultInfoFormat(self.finger_print)
         super().save(**kwargs)
