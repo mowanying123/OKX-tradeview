@@ -59,7 +59,7 @@ class ExchangeAccountInfo(models.Model):
     token = models.CharField(max_length=200, verbose_name="交易所接口 token")
     exchange = models.ForeignKey(ExchangeChannel, on_delete=models.CASCADE, related_name='exchange_account', verbose_name="关联交易所")
 
-     def __str__(self):
+    def __str__(self):
         return self.user_name
 
 class ExcangeSignalTrading(models.Model):
