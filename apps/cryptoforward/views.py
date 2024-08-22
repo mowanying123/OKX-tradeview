@@ -23,7 +23,7 @@ def errorMsg(msg):
 @csrf_exempt
 def trade_API_view(request):
     if request.method == "POST":
-        txt = request.body
+        txt = request.body.decode("utf-8")
         data = ParseTradingFormat(txt)
         if "fingerPrint" in data:
             signals = ExcangeSignalTrading.objects.filter(trade_pair__finger_print=data["fingerPrint"])
