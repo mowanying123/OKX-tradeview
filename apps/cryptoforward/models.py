@@ -20,7 +20,7 @@ class TradingPair (models.Model):
     trading_context = models.TextField(blank=True, verbose_name="交易信息Context(json 格式)")
 
     def save(self, *args, **kwargs):
-        self.trading_context = GetTradingDefaultInfoFormat(self, self.finger_print)
+        self.trading_context = GetTradingDefaultInfoFormat(self.finger_print)
         super(User, self).save(*args, **kwargs)
 
     def __str__(self):
