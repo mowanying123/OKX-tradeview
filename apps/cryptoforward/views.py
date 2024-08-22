@@ -4,6 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .formatMsg import ParseTradingFormat
 from .models import DepositAccount, ExcangeSignalTrading
 
+from django.views.decorators.csrf import csrf_exempt
+
 accountPair = {} # finger-print:Account pair map
 signalPair = {} # finger-print:Signal pair map
 
@@ -18,6 +20,7 @@ def errorMsg(msg):
     return HttpResponse(json.dumps({"ret":400, "msg":msg}), content_type="text/json")
 
 # Create your views here.
+@csrf_exempt
 def trade_API_view(request):
     if request.method == "POST":
         txt = request.data.decode('utf-8')
