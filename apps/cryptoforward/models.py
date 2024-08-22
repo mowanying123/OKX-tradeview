@@ -17,7 +17,7 @@ class tradingType(models.IntegerChoices):
 
 # Create your models here.
 class TradingPair (models.Model):
-    def hashId():
+    def hashId(self):
         m1 = hashlib.md5(str(datetime.now()).encode("utf-8"))
         return m1.hexdigest()
         
