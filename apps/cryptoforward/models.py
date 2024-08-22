@@ -82,7 +82,7 @@ class ExcangeSignalTrading(models.Model):
     format_string_exit_long = models.TextField(blank=True, verbose_name="多仓离场交易信号格式(json 格式)")
     format_string_enter_short = models.TextField(blank=True, verbose_name="空仓进场交易信号格式(json 格式)")
     format_string_exit_short = models.TextField(blank=True, verbose_name="多仓离场交易信号格式(json 格式)")
-    order_list = models.ManyToManyField(ExchangeOrder, verbose_name="订单列表")
+    order_list = models.ManyToManyField(ExchangeOrder, blank=True, verbose_name="订单列表")
 
     def __str__(self):
         return self.user_name
@@ -116,7 +116,7 @@ class DepositAccount(AbstractBaseUser):
     is_active = models.BooleanField(default=True, verbose_name="是否启用")
     trade_pair = models.ForeignKey(TradingPair, blank=True, null=True, on_delete=models.CASCADE, related_name='account_trading_pair', verbose_name="关联交易对")
     related_account = models.ForeignKey(ExchangeAccountInfo, on_delete=models.CASCADE, related_name='account_trading_pair', verbose_name="关联账户")
-    order_list = models.ManyToManyField(ExchangeOrder, verbose_name="订单列表")
+    order_list = models.ManyToManyField(ExchangeOrder, blank=True, verbose_name="订单列表")
 
     objects = AccountManager()
 
