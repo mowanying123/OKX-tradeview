@@ -21,7 +21,7 @@ class TradingPair (models.Model):
 
     def save(self, *args, **kwargs):
         self.trading_context = GetTradingDefaultInfoFormat(self.finger_print)
-        super(User, self).save(*args, **kwargs)
+        super(TradingPair, self).save(*args, **kwargs)
 
     def __str__(self):
         return "{0}-{1}".format(self.treading_pair_currency, self.finger_print)
@@ -112,7 +112,7 @@ class DepositAccount(AbstractBaseUser):
     def save(self, *args, **kwargs):
         if self._state.adding:
             self.password = make_password(self.password)  # 确保在创建时加密密码
-        super(User, self).save(*args, **kwargs)
+        super(DepositAccount, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.nickname
