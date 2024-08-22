@@ -1,5 +1,4 @@
 from django.db import models
-from hashid_field import HashidAutoField
 from django.contrib.auth.models import User as AuthUser, AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from .formatMsg import GetTradingDefaultInfoFormat
@@ -22,7 +21,7 @@ class TradingPair (models.Model):
         m1 = hashlib.md5(str(datetime.now()).encode("utf-8"))
         return m1.hexdigest()
         
-    finger_print = TextField(primary_key=True, blank=True, editable=False, verbose_name="指纹值")
+    finger_print = models.TextField(primary_key=True, blank=True, editable=False, verbose_name="指纹值")
     treading_pair_currency = models.CharField(max_length=200, verbose_name="交易对币种")
     trading_context = models.TextField(blank=True, verbose_name="交易信息Context(json 格式)")
 
