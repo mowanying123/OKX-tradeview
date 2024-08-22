@@ -20,7 +20,7 @@ class TradingPair (models.Model):
     finger_print = HashidAutoField(verbose_name="指纹值")
     trading_context = models.TextField(blank=True, default=getHash, verbose_name="交易信息Context(json 格式)")
 
-    def getHash():
+    def getHash(self):
         return GetTradingDefaultInfoFormat()
 
     def __str__(self):
