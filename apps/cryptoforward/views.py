@@ -27,11 +27,11 @@ def trade_API_view(request):
         data = ParseTradingFormat(txt)
         if "fingerPrint" in data:
             signals = ExcangeSignalTrading.objects.filter(trade_pair__finger_print=data["fingerPrint"])
-            if signals.count > 0:
+            if signals.count() > 0:
                 signalPair[data["fingerPrint"]] = {"entities":signals.all(), "context":txt}
                 print("放入 交易信号 ", signalPair)
             accounts = ExcangeSignalTrading.objects.filter(trade_pair__finger_print=data["fingerPrint"])
-            if accounts.count > 0:
+            if accounts.count() > 0:
                 accountPair[data["fingerPrint"]] = {"entities":accounts.all(), "context":txt}
                 print("放入 关联账户 ", signalPair)
             return resMsg("ok")
