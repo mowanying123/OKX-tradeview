@@ -54,6 +54,7 @@ CSRF_TRUSTED_ORIGINS = ['https://www.jiasushi.xyz']
 INSTALLED_APPS = [
     "apps.suit.apps.SuitConfig",
     "django_extensions",
+    "redisboard",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
