@@ -1,29 +1,29 @@
 # OKX TradeView
 
-OKX TradeView 是一个基于 Django 5.0 构建的加密货币交易管理平台，集成了多个功能模块，包括用户身份验证、数据展示、卡片管理、自动售货机支付等。该项目的核心模块 **Cryptoforward** 处理与加密货币交易相关的功能。
+OKX TradeView is a cryptocurrency trading management platform built on Django 5.0, integrating multiple functional modules, including user authentication, data presentation, card management, vending machine payments, etc. The core module **Cryptoforward** of the project handles functions related to cryptocurrency trading.
 
-## 项目功能
+## Project Features
 
-项目按照功能模块化设计，每个模块负责不同的业务逻辑。以下是项目中的主要模块：
+The project is designed in a modular fashion according to its functions, with each module responsible for different business logic. The following are the main modules in the project:
 
-### 核心模块：`apps/cryptoforward`
+### Core Module: `apps/cryptoforward`
 
-`Cryptoforward` 模块是项目的核心功能，负责与加密货币相关的交易数据处理及展示。其功能包括：
-- **消息格式化**：通过 `formatMsg.py` 对加密交易数据进行格式化，以便进行分析和展示。
-- **交易数据处理**：通过 `models.py` 管理和存储交易相关的数据。
-- **视图展示**：通过 `views.py` 实现交易相关页面的展示和数据更新。
-- **URL 路由**：通过 `urls.py` 定义和处理与交易相关的路由。
+The `Cryptoforward` module is the core functionality of the project, responsible for data processing and presentation related to cryptocurrency trading. Its features include:
+- **Message Formatting**: Format encrypted trading data through `formatMsg.py` for analysis and presentation.
+- **Transaction Data Processing**: Manage and store transaction-related data through `models.py`.
+- **View Presentation**: Implement the presentation and data update of transaction-related pages through `views.py`.
+- **URL Routing**: Define and handle routes related to transactions through `urls.py`.
 
-### 其他重要模块
-- **Authentication**：提供用户登录、注册、忘记密码等功能。
-- **Dashboards**：展示数据分析仪表盘，帮助用户直观了解交易数据和系统状态。
-- **Cards**：管理卡片数据，提供卡片样式的UI展示。
-- **VendingMachine**：提供自动售货机相关功能，包括产品展示和支付。
-- **UI & Layouts**：提供丰富的UI组件和布局模板，增强用户体验。
+### Other Important Modules
+- **Authentication**: Provides user login, registration, password recovery, and other features.
+- **Dashboards**: Present data analysis dashboards to help users intuitively understand trading data and system status.
+- **Cards**: Manage card data, providing UI display in card styles.
+- **VendingMachine**: Provide vending machine-related functions, including product display and payment.
+- **UI & Layouts**: Provide a rich set of UI components and layout templates to enhance user experience.
 
-## 项目依赖
+## Project Dependencies
 
-该项目依赖以下主要 Python 包，具体可查看 `requirements.txt` 文件：
+The project depends on the following main Python packages, which can be viewed in the `requirements.txt` file:
 
 ```bash
 asgiref==3.7.2
@@ -38,11 +38,11 @@ django_q==1.3.9
 redis==4.5.3
 ```
 
-## 环境配置
+## Environment Configuration
 
-1. 项目通过 `python-dotenv` 管理环境变量，需要创建 `.env` 文件并配置相应的环境变量。
+1. The project manages environment variables through `python-dotenv`, requiring the creation of a `.env` file and configuration of the corresponding environment variables.
 
-   示例 `.env` 文件：
+   Example `.env` file:
    ```bash
    SECRET_KEY=your-secret-key
    DEBUG=True
@@ -52,56 +52,56 @@ redis==4.5.3
    DATABASE_PASSWORD=your-db-password
    ```
 
-2. 确保本地安装 PostgreSQL 数据库并配置好连接信息。
+2. Ensure that PostgreSQL database is installed locally and connection information is properly configured.
 
-## 部署步骤
+## Deployment Steps
 
-以下是项目的部署步骤：
+The following are the steps for project deployment:
 
-### 1. 克隆项目
+### 1. Clone the Project
 ```bash
-git clone https://github.com/mowanying123/OKX-tradeview.git
+git clone https://github.com/mowanying123/OKX-tradeview.git 
 cd OKX-tradeview
 ```
 
-### 2. 创建并激活虚拟环境
+### 2. Create and Activate Virtual Environment
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. 安装依赖
+### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. 数据库迁移
-确保 PostgreSQL 数据库已运行，并在 `config/settings.py` 中正确配置了数据库连接。执行以下命令进行数据库迁移：
+### 4. Database Migration
+Ensure that the PostgreSQL database is running and the database connection is correctly configured in `config/settings.py`. Execute the following command for database migration:
 ```bash
 python manage.py migrate
 ```
 
-### 5. 启动开发服务器
-运行以下命令启动本地开发服务器：
+### 5. Start Development Server
+Run the following command to start the local development server:
 ```bash
 python manage.py runserver
 ```
 
-### 6. 部署到生产环境
-生产环境推荐使用 `gunicorn` 作为 WSGI 服务器。可以使用以下命令启动生产服务器：
+### 6. Deploy to Production Environment
+For the production environment, it is recommended to use `gunicorn` as the WSGI server. You can start the production server with the following command:
 ```bash
 gunicorn --config gunicorn-cfg.py config.wsgi
 ```
 
-至此，项目应已成功启动并运行。
+At this point, the project should be successfully launched and running.
 
-## 任务队列设置
+## Task Queue Setup
 
-项目使用了 `Django Q` 和 Redis 处理异步任务。部署 Redis 并使用以下命令启动任务队列：
+The project uses `Django Q` and Redis to handle asynchronous tasks. Deploy Redis and start the task queue with the following command:
 ```bash
 python manage.py qcluster
 ```
 
-## 贡献
+## Contribution
 
-欢迎提交 Issues 和 Pull Requests。如果有任何问题或建议，请联系项目维护者。
+Issues and Pull Requests are welcome. If you have any questions or suggestions, please contact the project maintainer.
