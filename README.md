@@ -2,6 +2,8 @@
 
 OKX TradeView is a cryptocurrency trading management platform built on Django 5.0, integrating multiple functional modules, including user authentication, data presentation, card management, vending machine payments, etc. The core module **Cryptoforward** of the project handles functions related to cryptocurrency trading.
 
+For Chinese readme, visit [here](https://github.com/mowanying123/OKX-tradeview/blob/main/README_CN.md)
+
 ## Project Features
 
 The project is designed in a modular fashion according to its functions, with each module responsible for different business logic. The following are the main modules in the project:
