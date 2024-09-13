@@ -7,13 +7,19 @@ from django.utils.translation import gettext_lazy as _
 import hashlib
 from datetime import datetime
 
-class tradingType(models.IntegerChoices):
+class TradingType(models.IntegerChoices):
         BUY = 1, _("买入")
         SELL = 2, _("卖出")
         BUY_FUTURE_LOW = 3, _("做多买入")
         SELL_FUTURE_HIGH = 4, _("做空卖出")
         SELL_FUTURE_LOW = 5, _("做多卖出")
         BUY_FUTURE_HIGH = 6, _("做空买入")
+
+class SignalType(model.IntegerChoices):
+    DUEL = 1, _("双向")
+    BUY_LOW_ONLY= 2, _("只做多")
+    SELL_HIGH_ONLY = 3, _("只做空")
+
 
 # Create your models here.
 class TradingPair (models.Model):
@@ -45,19 +51,17 @@ class ExchangeChannel(models.Model):
 
 class ExchangeOrder(models.Model):
     class State(models.IntegerChoices):
-        UNKNOWN = 0, _("未知")
-        PROCEED = 1, _("进行中")
         FINISH = 2, _("完成")
         FAILD = 3, _("失败")
     
     id = models.AutoField(primary_key=True)
     exchange_orderId = models.CharField(max_length=200, verbose_name="交易所订单Id")
-    exchange = models.ForeignKey(ExchangeChannel, on_delete=models.CASCADE, related_name='exchange_order', verbose_name="关联交易所")
+    exchange = models.ForeignKey(ExchangeChannel, blank=True, null=True, on_delete=models.CASCADE, related_name='exchange_order', verbose_name="关联交易所")
     trading_pair = models.ForeignKey(TradingPair, on_delete=models.CASCADE, related_name='order_trading_pair', verbose_name="关联交易对")
     amount = models.FloatField(default=0.0, verbose_name="交易数量")
     leverge = models.FloatField(default=1.0, verbose_name="交易杠杆")
     order_state = models.IntegerField(choices=State, verbose_name="订单状态")
-    trading_Type = models.IntegerField(choices=tradingType, verbose_name="交易类型")
+    trading_type = models.IntegerField(choices=TradingType, verbose_name="交易类型")
     create_time = models.DateTimeField(auto_now_add=True, verbose_name="交易创建时间")
     
     def __str__(self):
@@ -83,6 +87,7 @@ class ExcangeSignalTrading(models.Model):
     format_string_enter_short = models.TextField(blank=True, verbose_name="空仓进场交易信号格式(json 格式)")
     format_string_exit_short = models.TextField(blank=True, verbose_name="多仓离场交易信号格式(json 格式)")
     order_list = models.ManyToManyField(ExchangeOrder, blank=True, verbose_name="订单列表")
+    signal_type = models.IntegerField(choices=SignalType, verbose_name="对冲交易类型")
 
     def __str__(self):
         return self.name
