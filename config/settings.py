@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     "apps.forms",
     "apps.form_layouts",
     "apps.tables",
+    'django_q',
 ]
 
 MIDDLEWARE = [
@@ -89,6 +90,22 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
+
+Q_CLUSTER = {
+    'name': 'crypto',
+    'workers': 8,
+    'recycle': 500,
+    'timeout': 60,
+    'compress': True,
+    'save_limit': 250,
+    'queue_limit': 500,
+    'cpu_affinity': 1,
+    'label': 'Django Q',
+    'redis': {
+        'host': '127.0.0.1',
+        'port': 6379,
+        'db': 0, }
+}
 
 TEMPLATES = [
     {
